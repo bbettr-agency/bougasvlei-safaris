@@ -115,6 +115,20 @@ export default function Footer() {
             {siteConfig.city}, {siteConfig.region}, {siteConfig.country}
           </p>
         </div>
+
+        {/* Bbettr footer credit — subtle, premium, below the copyright line.
+            Bbettr Website OS standard (see COMPONENT-LIBRARY/footer-systems.md). */}
+        <p className="mt-5 text-center text-[11px] tracking-wide text-brand-ivory/35">
+          Website Designed &amp; Developed by{" "}
+          <a
+            href="https://www.bbettragency.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-brand-ivory/55 underline-offset-4 transition-colors hover:text-brand-gold hover:underline"
+          >
+            Bbettr Agency
+          </a>
+        </p>
       </div>
     </footer>
   );

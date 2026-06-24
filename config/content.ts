@@ -216,6 +216,30 @@ export const about = {
   },
 };
 
+// ── Homepage SEO content section ──────────────────────────────────────────────
+// Naturally written for visitors while supporting local + national search intent.
+export const seoSection = {
+  eyebrow: "Hunting Safaris in Thabazimbi, Limpopo",
+  title: "A premium base for your South African safari",
+  paragraphs: [
+    "Set in the malaria-free bushveld of Thabazimbi, Bougasvlei Safaris brings together everything that makes hunting safaris in South Africa so special — quality game, experienced professional hunters and the warm, personal hospitality of a family-run estate. Our location in the heart of Limpopo places you within easy reach of OR Tambo International, yet a world away in pristine African wilderness.",
+    "As both a working game farm in Thabazimbi and an eco-friendly bushveld lodge in Limpopo, we offer a complete experience under one roof. Hunters enjoy fair-chase rifle and bow safaris across 20+ species, while families and corporate guests relax into comfortable, sustainable accommodation, home-cooked catering and unhurried bushveld days. It is this balance — serious hunting and genuine comfort — that sets a great hunting lodge in South Africa apart.",
+    "Whether you are planning trophy hunting in South Africa for the first time or returning for another season in the Limpopo bushveld, our team tailors every detail to your group, your species list and your dates. The result is a safari that feels exclusive, effortless and unmistakably African.",
+  ],
+  highlights: [
+    "Guided hunting safaris in Limpopo & Thabazimbi",
+    "Eco-friendly bushveld lodge & all-inclusive catering",
+    "Trophy hunting across 20+ managed game species",
+    "Malaria-free, private and family-friendly",
+  ],
+  links: [
+    { label: "Hunting Safaris", href: "/hunting" },
+    { label: "Packages & Inclusions", href: "/hunting-with-us" },
+    { label: "Game Species", href: "/game-species" },
+    { label: "Contact Us", href: "/contact-us" },
+  ],
+};
+
 // ── Final CTA band ────────────────────────────────────────────────────────────
 export const finalCta = {
   title: "Ready to plan your Bougasvlei safari?",

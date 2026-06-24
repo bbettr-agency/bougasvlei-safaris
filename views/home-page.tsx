@@ -5,6 +5,7 @@ import HuntingOverview from "@/components/sections/hunting-overview";
 import LodgeSection from "@/components/sections/lodge-section";
 import WhyStay from "@/components/sections/why-stay";
 import SpeciesPreview from "@/components/sections/species-preview";
+import SeoContent from "@/components/sections/seo-content";
 import GalleryPreview from "@/components/sections/gallery-preview";
 import WhyBougasvlei from "@/components/sections/why-bougasvlei";
 import Reviews from "@/components/sections/reviews";
@@ -27,6 +28,8 @@ export default function HomePage() {
       <WhyStay />
       {/* 5. Game species preview */}
       <SpeciesPreview />
+      {/* SEO content section (local + national hunting-safari intent) */}
+      <SeoContent />
       {/* 6. Gallery preview */}
       <GalleryPreview />
       {/* 7. Why Bougasvlei Safaris */}

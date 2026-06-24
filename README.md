@@ -67,3 +67,15 @@ public/images/  # asset folders (see public/images/README.md)
 
 `/animals/[species]` (species data already slug-keyed) · `/hunting-packages` ·
 `/accommodation` · `/game-drives`. See `config/routes.ts → futureRoutes`.
+
+## Bbettr Website OS standards
+
+- **Footer credit (default):** the footer carries a subtle, premium credit below
+  the copyright line — _"Website Designed & Developed by Bbettr Agency"_, linking
+  to https://www.bbettragency.com (new tab, `rel="noopener noreferrer"`). This is
+  standard on every Bbettr Website OS site unless the client requests removal.
+  Spec: `../COMPONENT-LIBRARY/footer-systems.md`.
+- **Auto Mode build workflow:** once a build plan is approved, the build runs
+  under "Accept and Auto Mode" (no per-file re-approvals) →
+  build → lint → mobile verification → commit → push.
+  Spec: `../CORE-SYSTEM/10-DEVELOPMENT-RULES.md`.
