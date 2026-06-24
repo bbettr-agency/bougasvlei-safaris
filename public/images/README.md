@@ -1,5 +1,12 @@
 # Image assets — upload guide
 
+> When the client's images arrive, follow the Bbettr Website OS **Image Strategy
+> Rule** (`../../CORE-SYSTEM/06-VISUAL-DIRECTION.md`): review & categorize →
+> pick the strongest hero for conversion → optimize/compress → SEO filenames +
+> alt text → replace placeholders & assign to the right sections → verify
+> desktop/mobile → build, lint, commit, push. Never place images in upload order.
+
+
 Drop the client's licensed photography into these folders, then update the
 matching `src` path in **`config/images.ts`** (scenery/lodge/hunting), the
 species `image.src` in **`config/game-species.ts`**, or the award `image` in
