@@ -10,7 +10,7 @@ export default function GalleryPage() {
         crumb="Gallery"
         eyebrow="Gallery"
         title="The Bougasvlei Gallery"
-        subtitle="The lodge, the hunt, the wildlife and the bushveld. These placeholders are ready to be replaced with your own photography."
+        subtitle="The lodge, the hunt, the wildlife and the bushveld — a visual journey through the Bougasvlei Safaris experience in Thabazimbi, Limpopo."
         imageKey="firepit"
       />
 

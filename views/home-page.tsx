@@ -7,7 +7,6 @@ import SpeciesPreview from "@/components/sections/species-preview";
 import SeoContent from "@/components/sections/seo-content";
 import GalleryPreview from "@/components/sections/gallery-preview";
 import WhyBougasvlei from "@/components/sections/why-bougasvlei";
-import Reviews from "@/components/sections/reviews";
 import WhatsAppBand from "@/components/sections/whatsapp-band";
 import FinalCta from "@/components/sections/final-cta";
 
@@ -32,11 +31,9 @@ export default function HomePage() {
       <GalleryPreview />
       {/* 7. Why Bougasvlei Safaris */}
       <WhyBougasvlei />
-      {/* 8. Facebook reviews */}
-      <Reviews />
-      {/* 9. WhatsApp CTA */}
+      {/* 8. WhatsApp CTA */}
       <WhatsAppBand />
-      {/* 10. Final enquiry CTA */}
+      {/* 9. Final enquiry CTA */}
       <FinalCta />
     </>
   );

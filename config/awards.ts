@@ -36,17 +36,3 @@ export const awards: Award[] = [
     image: "/images/awards/3.png",
   },
 ];
-
-// Text-based trust signals shown alongside award badges (no image required).
-export type TrustBadge = {
-  id: string;
-  label: string;
-  sublabel?: string;
-};
-
-export const trustBadges: TrustBadge[] = [
-  { id: "malaria-free", label: "Malaria-Free Bushveld", sublabel: "Thabazimbi, Limpopo" },
-  { id: "all-inclusive", label: "All-Inclusive Safaris", sublabel: "Tailor-made packages" },
-  { id: "eco-friendly", label: "Eco-Friendly Lodge", sublabel: "Sustainable hospitality" },
-  { id: "family-run", label: "Family-Run & Hosted", sublabel: "André & Lida" },
-];

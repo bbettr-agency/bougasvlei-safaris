@@ -107,18 +107,10 @@ export const whyInternational = {
 };
 
 // ── Facebook / guest reviews ──────────────────────────────────────────────────
-// NOTE: replace with the client's real Facebook reviews before launch. No
-// aggregate rating is published as schema until verified reviews are supplied.
-export const reviews = {
-  eyebrow: "Guest Reviews",
-  title: "Loved by hunters & families alike",
-  note: "Reviews shared from our Facebook community. Replace with verified client reviews before launch.",
-  items: [
-    { name: "Guest review", location: "Facebook", text: "Placeholder review — André and Lida made our stay unforgettable. The hunting was excellent and the hospitality even better. We'll be back!", rating: 5 },
-    { name: "Guest review", location: "Facebook", text: "Placeholder review — a beautiful, peaceful lodge in pristine bushveld. Perfect for our family. Highly recommended.", rating: 5 },
-    { name: "Guest review", location: "Facebook", text: "Placeholder review — professional, ethical hunting and superb trophies. One of the best safaris we've experienced in Africa.", rating: 5 },
-  ],
-};
+// NOTE: a guest-reviews / testimonials section was intentionally removed for
+// launch — no fabricated reviews are shipped. Re-add a Reviews section once the
+// client supplies real, verified Facebook reviews (and only then add
+// aggregateRating to lib/schema.ts).
 
 // ── FAQs (used on relevant pages + FAQ schema) ────────────────────────────────
 export const faqs = [

@@ -14,8 +14,6 @@
 const U = (id: string, w = 1400, q = 70) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`;
 
-export type ImageAsset = { src: string | null; alt: string };
-
 export const images = {
   // ── Heroes — KEEP current (client instruction) ──────────────────────────────
   heroHome: {
@@ -62,20 +60,10 @@ export const images = {
     src: "/images/gallery/Lodge food.png",
     alt: "Bush platter and home-cooked catering at Bougasvlei Safaris",
   },
-  gate: {
-    src: "/images/gallery/Lodge gate 1.png",
-    alt: "Entrance gate to the Bougasvlei Safaris bushveld lodge and game farm",
-  },
   living: {
     src: "/images/lodge/lodge living 7.png",
     alt: "Comfortable living area at the Bougasvlei Safaris bushveld lodge",
   },
-  lodgeOutdoor: {
-    src: "/images/gallery/Lodge outdoor 5.png",
-    alt: "The bushveld grounds surrounding the Bougasvlei Safaris lodge",
-  },
 } as const;
 
 export type ImageKey = keyof typeof images;
-
-export { U as unsplash };
