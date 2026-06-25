@@ -5,8 +5,10 @@ import { MessageCircle, CalendarCheck } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 
 /**
- * Bottom sticky conversion bar — mobile only. Always keeps the two primary
- * actions (WhatsApp + Request Availability) within thumb reach.
+ * Bottom sticky conversion bar — mobile only. Keeps the two primary actions
+ * (WhatsApp + Request Availability) within thumb reach, each on a single line.
+ * WhatsApp is sized to its content so "Request Availability" gets the room it
+ * needs to stay on one line without wrapping.
  */
 export default function StickyMobileCta() {
   return (
@@ -16,17 +18,17 @@ export default function StickyMobileCta() {
           href={siteConfig.whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white"
+          className="flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-[13px] font-bold text-white"
         >
-          <MessageCircle className="h-4 w-4" />
-          WhatsApp
+          <MessageCircle className="h-4 w-4 shrink-0" />
+          <span className="whitespace-nowrap">WhatsApp</span>
         </a>
         <Link
           href="/contact-us"
-          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-brand-gold px-4 py-3 text-sm font-bold text-brand-ink"
+          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-brand-gold px-3.5 py-3.5 text-[13px] font-bold text-brand-ink"
         >
-          <CalendarCheck className="h-4 w-4" />
-          Request Availability
+          <CalendarCheck className="h-4 w-4 shrink-0" />
+          <span className="whitespace-nowrap">Request Availability</span>
         </Link>
       </div>
     </div>

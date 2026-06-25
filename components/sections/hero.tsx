@@ -7,7 +7,7 @@ import { Check, MessageCircle, CalendarCheck } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 import { hero } from "@/config/content";
 import { images } from "@/config/images";
-import { trustBadges } from "@/config/awards";
+import { awards } from "@/config/awards";
 import EnquiryForm from "@/components/forms/enquiry-form";
 
 export default function Hero() {
@@ -91,17 +91,29 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Trust badge strip */}
-          <div className="mt-7 flex flex-wrap gap-2">
-            {trustBadges.map((badge) => (
-              <span
-                key={badge.id}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-1.5 text-xs font-semibold text-brand-ivory/80 backdrop-blur"
-              >
-                <Check className="h-3 w-3 text-brand-gold" strokeWidth={3} />
-                {badge.label}
-              </span>
-            ))}
+          {/* Awards — Trusted & Recognised (3 logos, one row on all viewports) */}
+          <div className="mt-7">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-ivory/50">
+              Trusted &amp; Recognised
+            </p>
+            <div className="mt-2.5 flex max-w-sm items-stretch gap-2.5">
+              {awards.map((award) => (
+                <div
+                  key={award.id}
+                  className="flex h-12 flex-1 items-center justify-center rounded-xl bg-white/95 px-2.5 shadow-sm ring-1 ring-black/5 sm:h-14 sm:px-3"
+                >
+                  {award.image && (
+                    <Image
+                      src={award.image}
+                      alt={award.name}
+                      width={140}
+                      height={56}
+                      className="max-h-9 w-auto object-contain sm:max-h-10"
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 

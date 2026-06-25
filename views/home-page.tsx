@@ -1,5 +1,4 @@
 import Hero from "@/components/sections/hero";
-import AwardsStrip from "@/components/sections/awards-strip";
 import StatsStrip from "@/components/sections/stats-strip";
 import HuntingOverview from "@/components/sections/hunting-overview";
 import LodgeSection from "@/components/sections/lodge-section";
@@ -15,10 +14,9 @@ import FinalCta from "@/components/sections/final-cta";
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero with enquiry form */}
+      {/* 1. Hero with enquiry form + award badges */}
       <Hero />
-      {/* 2. Trust badges / awards */}
-      <AwardsStrip tone="dark" />
+      {/* 2. Headline stats */}
       <StatsStrip />
       {/* 3. Hunting safaris */}
       <HuntingOverview />

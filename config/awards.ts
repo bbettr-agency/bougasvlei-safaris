@@ -21,19 +21,19 @@ export const awards: Award[] = [
     id: "phasa",
     name: "PHASA — Professional Hunters' Association of South Africa",
     label: "PHASA Member",
-    image: "/images/awards/Phasa.png",
+    image: "/images/awards/2.png",
   },
   {
     id: "wrsa",
     name: "WRSA — Wildlife Ranching South Africa (20 Years)",
     label: "WRSA",
-    image: "/images/awards/WRSA 20 years.png",
+    image: "/images/awards/1.png",
   },
   {
     id: "tourism",
-    name: "South African Tourism Council accreditation",
-    label: "Tourism Council",
-    image: "/images/awards/Tourism trading council.png",
+    name: "Tourism Grading Council of South Africa — Quality in Tourism",
+    label: "Tourism Grading Council",
+    image: "/images/awards/3.png",
   },
 ];
 
