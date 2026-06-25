@@ -1,6 +1,6 @@
 # Bougasvlei Safaris — Session Handover
 
-**Status:** ✅ Production Ready · **Branch:** `main` · **Commit:** `__COMMIT__`
+**Status:** ✅ Production Ready · **Branch:** `main` · **Commit:** `576a8ae262c0b5c92fd492b441a5d656e21207e8`
 **Repo:** https://github.com/bbettr-agency/bougasvlei-safaris
 
 This document hands the project off for future maintenance. See `PROJECT_STATUS.md`

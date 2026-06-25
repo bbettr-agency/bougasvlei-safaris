@@ -3,7 +3,7 @@
 **Status:** ✅ Production Ready
 **Domain:** https://www.bougasvleisafaris.com
 **Repository:** https://github.com/bbettr-agency/bougasvlei-safaris (branch `main`)
-**Latest commit:** `__COMMIT__`
+**Latest commit:** `576a8ae262c0b5c92fd492b441a5d656e21207e8`
 **Last updated:** 2026-06-25
 
 Premium, SEO-focused, mobile-first website for Bougasvlei Safaris — hunting
