@@ -10,8 +10,8 @@ export default function WhyInternational() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
           <ImageFrame
-            src={images.savanna.src}
-            alt={images.savanna.alt}
+            src={images.giraffe.src}
+            alt={images.giraffe.alt}
             label="South African bushveld"
             className="aspect-[4/5] w-full shadow-card"
           />

@@ -17,10 +17,24 @@ export type Award = {
 };
 
 export const awards: Award[] = [
-  { id: "award-1", name: "Bougasvlei Safaris award", label: "Award 1", image: null },
-  { id: "award-2", name: "Bougasvlei Safaris award", label: "Award 2", image: null },
-  { id: "award-3", name: "Bougasvlei Safaris award", label: "Award 3", image: null },
-  { id: "award-4", name: "Bougasvlei Safaris award", label: "Award 4", image: null },
+  {
+    id: "phasa",
+    name: "PHASA — Professional Hunters' Association of South Africa",
+    label: "PHASA Member",
+    image: "/images/awards/Phasa.png",
+  },
+  {
+    id: "wrsa",
+    name: "WRSA — Wildlife Ranching South Africa (20 Years)",
+    label: "WRSA",
+    image: "/images/awards/WRSA 20 years.png",
+  },
+  {
+    id: "tourism",
+    name: "South African Tourism Council accreditation",
+    label: "Tourism Council",
+    image: "/images/awards/Tourism trading council.png",
+  },
 ];
 
 // Text-based trust signals shown alongside award badges (no image required).

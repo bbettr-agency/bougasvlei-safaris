@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
@@ -14,8 +15,14 @@ export default function Footer() {
           {/* Brand + about */}
           <div>
             <Link href="/" className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-gold/40 bg-brand-bark text-sm font-bold text-brand-gold">
-                BS
+              <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full ring-1 ring-brand-gold/40">
+                <Image
+                  src="/images/logo/Bougasvlei Safari Logo.png"
+                  alt="Bougasvlei Safaris logo"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-display text-xl font-bold tracking-tight text-brand-ivory">

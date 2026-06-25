@@ -60,21 +60,21 @@ export default function LodgeSection() {
         <Reveal delay={0.1} className="order-1 lg:order-2">
           <div className="grid grid-cols-2 gap-4">
             <ImageFrame
-              src={images.lodgeExterior.src}
-              alt={images.lodgeExterior.alt}
-              label="Lodge exterior"
+              src={images.firepit.src}
+              alt={images.firepit.alt}
+              label="Firepit / boma"
               className="col-span-2 aspect-[16/10] w-full shadow-cardLight"
             />
             <ImageFrame
-              src={images.lodgeFirepit.src}
-              alt={images.lodgeFirepit.alt}
-              label="Firepit / boma"
+              src={images.diningTable.src}
+              alt={images.diningTable.alt}
+              label="Lodge dining"
               className="aspect-square w-full shadow-cardLight"
             />
             <ImageFrame
-              src={images.dining.src}
-              alt={images.dining.alt}
-              label="Bush dining"
+              src={images.platter.src}
+              alt={images.platter.alt}
+              label="Bush catering"
               className="aspect-square w-full shadow-cardLight"
             />
           </div>

@@ -15,10 +15,10 @@ export default function FinalCta({ id = "enquire" }: FinalCtaProps) {
   return (
     <section id={id} className="relative overflow-hidden bg-brand-ink scroll-mt-24">
       <div className="absolute inset-0">
-        {images.bushveldSunset.src && (
+        {images.firepit.src && (
           <Image
-            src={images.bushveldSunset.src}
-            alt={images.bushveldSunset.alt}
+            src={images.firepit.src}
+            alt={images.firepit.alt}
             fill
             sizes="100vw"
             className="object-cover opacity-30"

@@ -14,8 +14,8 @@ export default function HuntingOverview() {
         <Reveal>
           <div className="relative">
             <ImageFrame
-              src={images.huntingWalk.src}
-              alt={images.huntingWalk.alt}
+              src={images.trophyHunt.src}
+              alt={images.trophyHunt.alt}
               label="Hunting safari photo"
               className="aspect-[4/3] w-full shadow-card"
             />

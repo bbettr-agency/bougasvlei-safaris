@@ -7,11 +7,11 @@ import SectionHeading from "@/components/ui/section-heading";
 import Reveal from "@/components/ui/reveal";
 
 const previewItems = [
-  { img: images.lodgeExterior, label: "Lodge", span: "lg:col-span-2 lg:row-span-2 aspect-[4/3] lg:aspect-auto" },
-  { img: images.huntingTrophy, label: "Hunting", span: "aspect-square" },
-  { img: images.gameDrive, label: "Game drive", span: "aspect-square" },
-  { img: images.bushveldSunset, label: "Bushveld", span: "aspect-square" },
-  { img: images.lodgeInterior, label: "Lodge interior", span: "aspect-square" },
+  { img: images.buffaloWaterhole, label: "Bushveld", span: "lg:col-span-2 lg:row-span-2 aspect-[4/3] lg:aspect-auto" },
+  { img: images.trophyHunt, label: "Hunting", span: "aspect-square" },
+  { img: images.giraffe, label: "Wildlife", span: "aspect-square" },
+  { img: images.firepit, label: "Lodge", span: "aspect-square" },
+  { img: images.platter, label: "Catering", span: "aspect-square" },
 ];
 
 export default function GalleryPreview() {

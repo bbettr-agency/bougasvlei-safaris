@@ -58,6 +58,9 @@ export default function ImageFrame({
           fill
           sizes={sizes}
           priority={priority}
+          // SVG assets (game-species illustrations) are served straight from
+          // /public — the Next image optimizer rejects SVGs, so skip it for them.
+          unoptimized={(src as string).toLowerCase().endsWith(".svg")}
           onError={() => setFailed(true)}
           className={cn("object-cover", imageClassName)}
         />

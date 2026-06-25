@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -37,8 +38,15 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 sm:px-6 lg:px-8">
         {/* Brand / logo slot */}
         <Link href="/" className="flex items-center gap-3" aria-label="Bougasvlei Safaris home">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-gold/40 bg-brand-bark text-sm font-bold text-brand-gold">
-            BS
+          <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-1 ring-brand-gold/40">
+            <Image
+              src="/images/logo/Bougasvlei Safari Logo.png"
+              alt="Bougasvlei Safaris logo"
+              fill
+              sizes="44px"
+              priority
+              className="object-cover"
+            />
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-lg font-bold tracking-tight text-brand-ivory">

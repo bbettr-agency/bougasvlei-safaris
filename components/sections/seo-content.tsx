@@ -78,9 +78,9 @@ export default function SeoContent() {
         <Reveal delay={0.1}>
           <div className="relative">
             <ImageFrame
-              src={images.lodgeExterior.src}
-              alt="Eco-friendly bushveld lodge and game farm at Bougasvlei Safaris in Thabazimbi, Limpopo"
-              label="Lodge & bushveld"
+              src={images.sable.src}
+              alt="Sable bull in the bushveld at the Bougasvlei Safaris game farm in Thabazimbi, Limpopo"
+              label="Bushveld wildlife"
               className="aspect-[4/5] w-full shadow-card"
             />
             <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-brand-gold/20 bg-brand-charcoal/90 px-5 py-4 shadow-ink backdrop-blur sm:block">

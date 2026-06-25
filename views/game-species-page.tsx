@@ -11,7 +11,7 @@ export default function GameSpeciesPage() {
         eyebrow="Trophy Hunting"
         title="Game Species at Bougasvlei Safaris"
         subtitle="From dangerous game to classic plains game, explore the 20+ species available across our bushveld game farm in Thabazimbi, Limpopo."
-        imageKey="savanna"
+        imageKey="buffaloWaterhole"
       />
 
       <section className="bg-brand-ink px-5 py-20 sm:px-6 md:py-24 lg:px-8">

@@ -12,7 +12,7 @@ export default function ContactPage() {
         eyebrow="Contact & Enquiries"
         title="Contact Bougasvlei Safaris"
         subtitle="For hunting packages, eco-friendly lodge accommodation, catering and guided safaris in Thabazimbi, Limpopo — send an enquiry or WhatsApp us. We reply within 24 hours on business days."
-        imageKey="lodgeInterior"
+        imageKey="living"
       />
       <ContactDetails />
       <AwardsStrip tone="dark" heading="Trusted & Recognised" />

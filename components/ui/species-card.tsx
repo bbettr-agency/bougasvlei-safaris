@@ -10,7 +10,7 @@ export default function SpeciesCard({ species }: { species: Species }) {
           alt={species.image.alt}
           label={species.name}
           rounded="rounded-none"
-          className="aspect-[4/3] w-full"
+          className="aspect-square w-full"
           imageClassName="transition-transform duration-500 group-hover:scale-105"
         />
         <span className="absolute left-3 top-3 rounded-full bg-brand-ink/80 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-gold backdrop-blur">

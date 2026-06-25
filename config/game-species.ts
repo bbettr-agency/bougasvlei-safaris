@@ -3,9 +3,9 @@
 //
 //  Each species is keyed by `slug` so a future dynamic route /animals/[species]
 //  can be added with zero data migration (see lib/routes.ts → futureRoutes).
-//  Card images default to a premium labelled placeholder; when the client uploads
-//  real trophy/wildlife photos to /public/images/wildlife/, set `image.src` to the
-//  local path and it updates the grid + any future species page automatically.
+//  Card images are the client's species illustrations in /public/images/wildlife
+//  (matched to each animal by filename). Caracal has no supplied image yet, so it
+//  falls back to a premium labelled placeholder until one is added.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type SpeciesCategory =
@@ -22,10 +22,14 @@ export type Species = {
   image: { src: string | null; alt: string };
 };
 
-const ph = (name: string, alt: string): Species["image"] => ({
-  src: null,
+// Client wildlife illustration (filename preserved exactly — never renamed/moved).
+const wild = (file: string, alt: string): Species["image"] => ({
+  src: `/images/wildlife/${file}`,
   alt,
 });
+
+// No supplied image yet → labelled placeholder.
+const ph = (alt: string): Species["image"] => ({ src: null, alt });
 
 export const gameSpecies: Species[] = [
   {
@@ -34,7 +38,7 @@ export const gameSpecies: Species[] = [
     category: "Big Game",
     summary:
       "One of Africa's most sought-after dangerous-game trophies — hunted on foot for an unforgettable, adrenaline-charged safari.",
-    image: ph("Cape Buffalo", "Cape Buffalo bull in the Limpopo bushveld at Bougasvlei Safaris"),
+    image: wild("Buffalo, Cape (1).svg", "Cape Buffalo illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "leopard",
@@ -42,7 +46,7 @@ export const gameSpecies: Species[] = [
     category: "Predator",
     summary:
       "An elusive, prized big cat of the bushveld, hunted under permit with experienced professional hunters.",
-    image: ph("Leopard", "Leopard in the Thabazimbi bushveld"),
+    image: wild("lewaparfd (1).svg", "Leopard illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "sable",
@@ -50,7 +54,7 @@ export const gameSpecies: Species[] = [
     category: "Specialty",
     summary:
       "Regarded by many as the most regal antelope in Africa — a striking trophy with sweeping scimitar horns.",
-    image: ph("Sable", "Sable antelope bull with sweeping horns in Limpopo"),
+    image: wild("sable (1).svg", "Sable antelope illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "cape-kudu",
@@ -58,7 +62,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "The 'grey ghost' of the bushveld — magnificent spiralled horns make this a classic walk-and-stalk trophy.",
-    image: ph("Cape Kudu", "Cape Kudu bull with spiral horns in the bushveld"),
+    image: wild("Kudu (1).svg", "Cape Kudu illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "eland",
@@ -66,7 +70,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "The largest antelope in Africa — a heavyweight trophy that rewards patient, fair-chase hunting.",
-    image: ph("Eland", "Eland bull, the largest African antelope, in Limpopo"),
+    image: wild("Eland (1).svg", "Eland illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "giraffe",
@@ -74,7 +78,7 @@ export const gameSpecies: Species[] = [
     category: "Specialty",
     summary:
       "A truly unique African specialty hunt, taken on foot across the open bushveld.",
-    image: ph("Giraffe", "Giraffe in the Thabazimbi bushveld"),
+    image: wild("Giraffe (1).svg", "Giraffe illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "blue-wildebeest",
@@ -82,7 +86,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "The 'poor man's buffalo' — tough, abundant and a rewarding spot-and-stalk plains-game trophy.",
-    image: ph("Blue Wildebeest", "Blue Wildebeest in the Limpopo bushveld"),
+    image: wild("Wildebees, Blue (1).svg", "Blue Wildebeest illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "zebra",
@@ -90,7 +94,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "A beautiful, hardy plains-game trophy prized for its striking hide and challenging stalk.",
-    image: ph("Zebra", "Burchell's zebra in the bushveld near Thabazimbi"),
+    image: wild("zebra (1).svg", "Burchell's zebra illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "waterbuck",
@@ -98,7 +102,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "A large, handsome antelope with impressive forward-curving horns, found near water across the property.",
-    image: ph("Waterbuck", "Waterbuck bull near water in the Limpopo bushveld"),
+    image: wild("Waterbuck (1).svg", "Waterbuck illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "impala",
@@ -106,7 +110,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "The quintessential African antelope — graceful, plentiful and an ideal first plains-game trophy.",
-    image: ph("Impala", "Impala ram in the Thabazimbi bushveld"),
+    image: wild("Impala (1).svg", "Impala illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "black-impala",
@@ -114,7 +118,7 @@ export const gameSpecies: Species[] = [
     category: "Specialty",
     summary:
       "A rare colour variant of the common impala and a distinctive specialty trophy.",
-    image: ph("Black Impala", "Black Impala, a rare colour variant, in Limpopo"),
+    image: wild("Impala (2).svg", "Black Impala illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "blesbuck",
@@ -122,7 +126,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "A distinctive blaze-faced antelope of the open plains — a fast, fair-chase trophy.",
-    image: ph("Blesbuck", "Blesbuck with white blaze in the bushveld"),
+    image: wild("Blesbuck (1).svg", "Blesbuck illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "bushbuck",
@@ -130,7 +134,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "A secretive, beautiful antelope of the riverine thickets — a true bushveld hunting challenge.",
-    image: ph("Bushbuck", "Bushbuck in riverine bush near Thabazimbi"),
+    image: wild("Bushbuck (1).svg", "Bushbuck illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "reedbuck",
@@ -138,7 +142,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "A graceful grassland antelope, hunted in the early morning and late afternoon for the best opportunities.",
-    image: ph("Reedbuck", "Reedbuck in Limpopo grassland"),
+    image: wild("Reedbuck (1).svg", "Reedbuck illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "warthog",
@@ -146,7 +150,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "A characterful and exciting trophy — old boars with worn ivory tusks are a true bushveld prize.",
-    image: ph("Warthog", "Warthog boar with tusks in the bushveld"),
+    image: wild("Warthog (1).svg", "Warthog illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "duiker",
@@ -154,7 +158,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "One of the bushveld's smallest antelope — a rewarding addition to any plains-game safari.",
-    image: ph("Duiker", "Common duiker in the Thabazimbi bushveld"),
+    image: wild("Duiker (1).svg", "Duiker illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "ostrich",
@@ -162,7 +166,7 @@ export const gameSpecies: Species[] = [
     category: "Specialty",
     summary:
       "The world's largest bird makes for a unique and surprisingly challenging African hunt.",
-    image: ph("Ostrich", "Ostrich in the open Limpopo bushveld"),
+    image: wild("Ostrich (1).svg", "Ostrich illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "brown-hyena",
@@ -170,7 +174,7 @@ export const gameSpecies: Species[] = [
     category: "Predator",
     summary:
       "A rare, nocturnal predator of the bushveld and a prized specialty trophy for the dedicated hunter.",
-    image: ph("Brown Hyena", "Brown Hyena, a rare bushveld predator, in Limpopo"),
+    image: wild("hyena (1).svg", "Brown Hyena illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "jackal",
@@ -178,7 +182,7 @@ export const gameSpecies: Species[] = [
     category: "Predator",
     summary:
       "A cunning bushveld predator, often hunted by call — an exciting addition to a safari.",
-    image: ph("Jackal", "Black-backed jackal in the Thabazimbi bushveld"),
+    image: wild("jackal (1).svg", "Black-backed jackal illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "caracal",
@@ -186,7 +190,7 @@ export const gameSpecies: Species[] = [
     category: "Predator",
     summary:
       "An elusive, powerful small cat — one of the most challenging predator trophies in the bushveld.",
-    image: ph("Caracal", "Caracal, an elusive bushveld cat, in Limpopo"),
+    image: ph("Caracal — Bougasvlei Safaris game species (photo to be added)"),
   },
 ];
 

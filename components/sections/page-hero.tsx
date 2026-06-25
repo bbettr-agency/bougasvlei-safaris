@@ -18,7 +18,7 @@ export default function PageHero({
   eyebrow,
   title,
   subtitle,
-  imageKey = "bushveldSunset",
+  imageKey = "firepit",
   crumb,
 }: PageHeroProps) {
   const img = images[imageKey];

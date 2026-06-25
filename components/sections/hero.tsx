@@ -15,10 +15,10 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden bg-brand-ink text-brand-ivory">
       {/* Background image + overlays */}
       <div className="absolute inset-0">
-        {images.heroBushveld.src && (
+        {images.heroHome.src && (
           <Image
-            src={images.heroBushveld.src}
-            alt={images.heroBushveld.alt}
+            src={images.heroHome.src}
+            alt={images.heroHome.alt}
             fill
             priority
             sizes="100vw"

@@ -10,21 +10,21 @@ export default function AboutStory() {
         <Reveal>
           <div className="grid grid-cols-2 gap-4">
             <ImageFrame
-              src={images.savanna.src}
-              alt={images.savanna.alt}
-              label="Bushveld"
+              src={images.firepit.src}
+              alt={images.firepit.alt}
+              label="Firepit & boma"
               className="col-span-2 aspect-[16/10] w-full shadow-card"
             />
             <ImageFrame
-              src={images.lodgeFirepit.src}
-              alt={images.lodgeFirepit.alt}
-              label="Firepit"
+              src={images.giraffe.src}
+              alt={images.giraffe.alt}
+              label="Wildlife"
               className="aspect-square w-full shadow-card"
             />
             <ImageFrame
-              src={images.gameDrive.src}
-              alt={images.gameDrive.alt}
-              label="Game drive"
+              src={images.platter.src}
+              alt={images.platter.alt}
+              label="Bush catering"
               className="aspect-square w-full shadow-card"
             />
           </div>

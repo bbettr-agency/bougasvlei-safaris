@@ -14,7 +14,7 @@ export default function AboutPage() {
         eyebrow="About Us"
         title="About Bougasvlei Safaris"
         subtitle="A family-run hunting and eco-friendly lodge destination in the malaria-free bushveld of Thabazimbi, Limpopo, South Africa."
-        imageKey="lodgeFirepit"
+        imageKey="buffaloHerd"
       />
       <AboutStory />
       <StatsStrip />

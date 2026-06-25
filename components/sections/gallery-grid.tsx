@@ -2,21 +2,22 @@ import { images } from "@/config/images";
 import ImageFrame from "@/components/ui/image-frame";
 import Reveal from "@/components/ui/reveal";
 
-// Mixed scenery/wildlife (Unsplash placeholders) + labelled slots for the client's
-// own lodge, hunting, wildlife and team photography.
+// Curated mix of the client's bushveld/wildlife, hunting and lodge photography.
 const galleryItems: { src: string | null; alt: string; label: string }[] = [
-  { ...images.lodgeExterior, label: "Lodge exterior" },
-  { ...images.huntingWalk, label: "Walk-and-stalk" },
-  { ...images.bushveldSunset, label: "Bushveld sunset" },
-  { ...images.lodgeInterior, label: "Lodge interior" },
-  { ...images.gameDrive, label: "Game drive" },
-  { ...images.huntingTrophy, label: "Trophy hunting" },
-  { ...images.dining, label: "Bush dining" },
-  { ...images.savanna, label: "Open savanna" },
-  { ...images.lodgeFirepit, label: "Firepit & boma" },
-  { src: null, alt: "Wildlife photo from Bougasvlei Safaris", label: "Wildlife" },
-  { src: null, alt: "Trophy gallery photo from Bougasvlei Safaris", label: "Trophy gallery" },
-  { src: null, alt: "Family safari photo from Bougasvlei Safaris", label: "Family moments" },
+  { ...images.buffaloWaterhole, label: "Bushveld" },
+  { ...images.firepit, label: "Firepit & boma" },
+  { ...images.giraffe, label: "Wildlife" },
+  { ...images.diningTable, label: "Lodge dining" },
+  { ...images.trophyHunt, label: "Trophy hunting" },
+  { ...images.sable, label: "Sable" },
+  { ...images.platter, label: "Bush catering" },
+  { ...images.buffaloHerd, label: "Cape buffalo" },
+  { ...images.living, label: "Lodge living" },
+  { ...images.gate, label: "Arrival" },
+  { src: "/images/gallery/Lodge outdoor 3.png", alt: "Bushveld scenery at Bougasvlei Safaris, Thabazimbi", label: "Bushveld" },
+  { src: "/images/gallery/Lodge food 9.png", alt: "Home-cooked meal at the Bougasvlei Safaris lodge", label: "Catering" },
+  { src: "/images/gallery/Lodge living 3.png", alt: "Comfortable lodge interior at Bougasvlei Safaris", label: "Lodge interior" },
+  { src: "/images/gallery/Lodge outdoor 8.png", alt: "Wildlife in the Limpopo bushveld at Bougasvlei Safaris", label: "Wildlife" },
 ];
 
 export default function GalleryGrid() {

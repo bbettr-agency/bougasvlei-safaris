@@ -1,13 +1,14 @@
 // ─────────────────────────────────────────────────────────────────────────────
-//  IMAGE MAP — temporary Unsplash bushveld/wildlife imagery for a premium feel.
+//  IMAGE MAP — client photography (permanent asset library in /public/images).
 //
-//  ⚠️ PLACEHOLDER PHOTOGRAPHY. These Unsplash URLs are licensed for editorial
-//  preview only. Replace each with the client's own licensed photos by dropping
-//  files into /public/images/<folder>/ and swapping the `src` to a local path
-//  (e.g. "/images/hero/lodge-sunset.jpg"). See public/images/README.md.
+//  Selected per the Bbettr Website OS IMAGE STRATEGY RULE: reviewed, categorized
+//  and chosen for trust, storytelling and conversion (not upload order). The two
+//  hero images remain on Unsplash because the client asked to KEEP the current
+//  heroes; everything else uses the client's own photos.
 //
-//  <ImageFrame> degrades gracefully: if any URL fails to load it shows a premium
-//  labelled placeholder, so the layout never breaks.
+//  Originals are never renamed/moved. next/image handles web optimization,
+//  compression and responsive variants at runtime. <ImageFrame> degrades to a
+//  premium labelled placeholder if any src is missing.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const U = (id: string, w = 1400, q = 70) =>
@@ -16,67 +17,65 @@ const U = (id: string, w = 1400, q = 70) =>
 export type ImageAsset = { src: string | null; alt: string };
 
 export const images = {
-  // ── Hero / atmospheric scenery ──────────────────────────────────────────────
-  heroBushveld: {
+  // ── Heroes — KEEP current (client instruction) ──────────────────────────────
+  heroHome: {
     src: U("1516426122078-c23e76319801", 2000),
-    alt: "Zebra grazing in the golden Limpopo bushveld at sunrise near Thabazimbi",
+    alt: "Bushveld at sunrise in the malaria-free hunting region of Thabazimbi, Limpopo",
   },
-  bushveldSunset: {
-    src: U("1547471080-7cc2caa01a7e", 1600),
-    alt: "Acacia trees silhouetted against an African bushveld sunset in Limpopo",
-  },
-  savanna: {
-    src: U("1534177616072-ef7dc120449d", 1600),
-    alt: "Open African savanna landscape in the malaria-free Limpopo bushveld",
-  },
-
-  // ── Lodge / accommodation ───────────────────────────────────────────────────
-  lodgeExterior: {
-    src: U("1571896349842-33c89424de2d", 1600),
-    alt: "Eco-friendly bushveld safari lodge exterior at Bougasvlei Safaris",
-  },
-  lodgeInterior: {
-    src: U("1582719478250-c89cae4dc85b", 1600),
-    alt: "Warm, premium safari lodge interior with natural bushveld textures",
-  },
-  lodgeFirepit: {
-    src: U("1504280390367-361c6d9f38f4", 1600),
-    alt: "Evening firepit and boma under the African stars at the bushveld lodge",
-  },
-  dining: {
-    src: U("1414235077428-338989a2e8c0", 1600),
-    alt: "Authentic South African bush dining and catering at the safari lodge",
-  },
-
-  // ── Hunting ─────────────────────────────────────────────────────────────────
-  huntingWalk: {
-    src: U("1444464666168-49d633b86797", 1600),
-    alt: "Professional hunter walk-and-stalk safari through the Limpopo bushveld",
-  },
-  huntingRifle: {
-    src: U("1551845041-63e8e76836ea", 1600),
-    alt: "Rifle hunting safari in the malaria-free bushveld of Thabazimbi",
-  },
-  huntingTrophy: {
+  heroHunting: {
     src: U("1456926631375-92c8ce872def", 1600),
     alt: "Guided trophy hunting safari in the South African bushveld",
   },
 
-  // ── Family / experiences ────────────────────────────────────────────────────
-  gameDrive: {
-    src: U("1523805009345-7448845a9e53", 1600),
-    alt: "Open safari vehicle game drive through the Limpopo bushveld",
+  // ── Wildlife & bushveld (client) ────────────────────────────────────────────
+  buffaloWaterhole: {
+    src: "/images/gallery/Lodge outdoor 4.png",
+    alt: "Cape buffalo at a waterhole in the bushveld at Bougasvlei Safaris, Thabazimbi",
   },
-  family: {
-    src: U("1518709268805-4e9042af9f23", 1600),
-    alt: "Family enjoying an African bushveld safari experience",
+  buffaloHerd: {
+    src: "/images/gallery/Lodge outdoor 10.png",
+    alt: "Herd of Cape buffalo in the Limpopo bushveld at Bougasvlei Safaris",
+  },
+  giraffe: {
+    src: "/images/gallery/Lodge outdoor 2.png",
+    alt: "Giraffe standing in the green bushveld at Bougasvlei Safaris, Thabazimbi",
+  },
+  sable: {
+    src: "/images/gallery/Lodge outdoor 6.png",
+    alt: "Sable bull with sweeping horns in the bushveld at Bougasvlei Safaris",
+  },
+  trophyHunt: {
+    src: "/images/gallery/Lodge outdoor 13.png",
+    alt: "Hunter with a blue wildebeest trophy on a guided safari at Bougasvlei Safaris",
+  },
+
+  // ── Lodge & hospitality (client) ────────────────────────────────────────────
+  firepit: {
+    src: "/images/lodge/Lodge 3.png",
+    alt: "Boma and firepit glowing at sunset at the Bougasvlei Safaris bushveld lodge",
+  },
+  diningTable: {
+    src: "/images/lodge/Lodge living room.png",
+    alt: "Dining table set for guests inside the Bougasvlei Safaris lodge",
+  },
+  platter: {
+    src: "/images/gallery/Lodge food.png",
+    alt: "Bush platter and home-cooked catering at Bougasvlei Safaris",
+  },
+  gate: {
+    src: "/images/gallery/Lodge gate 1.png",
+    alt: "Entrance gate to the Bougasvlei Safaris bushveld lodge and game farm",
+  },
+  living: {
+    src: "/images/lodge/lodge living 7.png",
+    alt: "Comfortable living area at the Bougasvlei Safaris bushveld lodge",
+  },
+  lodgeOutdoor: {
+    src: "/images/gallery/Lodge outdoor 5.png",
+    alt: "The bushveld grounds surrounding the Bougasvlei Safaris lodge",
   },
 } as const;
 
-// Wildlife pool for species cards — temporary stand-ins for the client's own
-// trophy / wildlife photography (swap per species in config/game-species.ts).
-export const wildlife = {
-  zebra: U("1526137844-c5b1b1e8c5b9"),
-} as const;
+export type ImageKey = keyof typeof images;
 
 export { U as unsplash };

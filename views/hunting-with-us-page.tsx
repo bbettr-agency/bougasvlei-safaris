@@ -13,7 +13,7 @@ export default function HuntingWithUsPage() {
         eyebrow="Packages & Experience"
         title="Hunting With Us"
         subtitle="Tailor-made, all-inclusive safari packages with professional hunters, comfortable lodging and full trophy handling — here's exactly how it works."
-        imageKey="huntingWalk"
+        imageKey="trophyHunt"
       />
       <HuntingProcess />
       <HuntingIncludes />

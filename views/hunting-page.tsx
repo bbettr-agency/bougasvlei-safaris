@@ -14,7 +14,7 @@ export default function HuntingPage() {
         eyebrow="Hunting Safaris"
         title="Hunting Safaris in Thabazimbi, Limpopo"
         subtitle="Guided rifle and bow hunting across the malaria-free bushveld — fair-chase, ethical and tailor-made for South African and international hunters."
-        imageKey="huntingTrophy"
+        imageKey="heroHunting"
       />
       <HuntingTypes />
       {/* Why International Hunters Choose South Africa — international SEO */}
