@@ -28,9 +28,6 @@ const wild = (file: string, alt: string): Species["image"] => ({
   alt,
 });
 
-// No supplied image yet → labelled placeholder.
-const ph = (alt: string): Species["image"] => ({ src: null, alt });
-
 export const gameSpecies: Species[] = [
   {
     slug: "cape-buffalo",
@@ -54,7 +51,7 @@ export const gameSpecies: Species[] = [
     category: "Specialty",
     summary:
       "Regarded by many as the most regal antelope in Africa — a striking trophy with sweeping scimitar horns.",
-    image: wild("sable (1).svg", "Sable antelope illustration — Bougasvlei Safaris game species"),
+    image: wild("sable 2.0.svg", "Sable antelope illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "cape-kudu",
@@ -150,7 +147,7 @@ export const gameSpecies: Species[] = [
     category: "Plains Game",
     summary:
       "A characterful and exciting trophy — old boars with worn ivory tusks are a true bushveld prize.",
-    image: wild("Warthog (1).svg", "Warthog illustration — Bougasvlei Safaris game species"),
+    image: wild("warthog 2,0.svg", "Warthog illustration — Bougasvlei Safaris game species"),
   },
   {
     slug: "duiker",
@@ -190,7 +187,7 @@ export const gameSpecies: Species[] = [
     category: "Predator",
     summary:
       "An elusive, powerful small cat — one of the most challenging predator trophies in the bushveld.",
-    image: ph("Caracal — Bougasvlei Safaris game species (photo to be added)"),
+    image: wild("Caracal (1).svg", "Caracal illustration — Bougasvlei Safaris game species"),
   },
 ];
 

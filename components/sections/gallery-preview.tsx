@@ -1,18 +1,11 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { images } from "@/config/images";
+import { galleryFeatured } from "@/config/gallery";
 import ImageFrame from "@/components/ui/image-frame";
 import SectionHeading from "@/components/ui/section-heading";
 import Reveal from "@/components/ui/reveal";
-
-const previewItems = [
-  { img: images.buffaloWaterhole, label: "Bushveld", span: "lg:col-span-2 lg:row-span-2 aspect-[4/3] lg:aspect-auto" },
-  { img: images.trophyHunt, label: "Hunting", span: "aspect-square" },
-  { img: images.giraffe, label: "Wildlife", span: "aspect-square" },
-  { img: images.firepit, label: "Lodge", span: "aspect-square" },
-  { img: images.platter, label: "Catering", span: "aspect-square" },
-];
+import { cn } from "@/utils/cn";
 
 export default function GalleryPreview() {
   return (
@@ -21,18 +14,23 @@ export default function GalleryPreview() {
         <SectionHeading
           eyebrow="Gallery"
           title="A glimpse of the Bougasvlei experience"
-          body="The lodge, the bushveld and the hunt — captured. Replace these with your own photography to bring the gallery to life."
+          body="The lodge, the bushveld, the hunt and the hospitality — a few of our favourite moments."
         />
 
         <Reveal className="mt-12">
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:grid-rows-2">
-            {previewItems.map((item, i) => (
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {galleryFeatured.map((item, i) => (
               <ImageFrame
-                key={i}
-                src={item.img.src}
-                alt={item.img.alt}
-                label={item.label}
-                className={`w-full shadow-card ${item.span}`}
+                key={item.src}
+                src={item.src}
+                alt={item.alt}
+                label={item.category}
+                className={cn(
+                  "w-full shadow-card",
+                  i === 0
+                    ? "col-span-2 row-span-2 aspect-[4/3] lg:aspect-auto"
+                    : "aspect-square"
+                )}
               />
             ))}
           </div>
