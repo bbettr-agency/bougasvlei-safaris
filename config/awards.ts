@@ -27,7 +27,7 @@ export const awards: Award[] = [
     id: "wrsa",
     name: "WRSA — Wildlife Ranching South Africa (20 Years)",
     label: "WRSA",
-    image: "/images/awards/1.png",
+    image: "/images/awards/wrsa new.png",
   },
   {
     id: "tourism",

@@ -1,5 +1,4 @@
-import { awards } from "@/config/awards";
-import AwardBadge from "@/components/ui/award-badge";
+import AwardLogos from "@/components/ui/award-logos";
 import Reveal from "@/components/ui/reveal";
 import { cn } from "@/utils/cn";
 
@@ -10,8 +9,9 @@ type AwardsStripProps = {
 };
 
 /**
- * Subtle, premium award/trust badges. Reused across hero trust area, about,
- * contact, footer and hunting pages. Driven by config/awards.ts.
+ * Subtle, premium award logos. Reused across about, contact and hunting pages.
+ * Driven by config/awards.ts and the shared <AwardLogos> presentation so sizing
+ * is identical everywhere the awards appear.
  */
 export default function AwardsStrip({
   tone = "dark",
@@ -22,7 +22,7 @@ export default function AwardsStrip({
   return (
     <section
       className={cn(
-        "border-y px-5 py-10 sm:px-6 lg:px-8",
+        "border-y px-5 py-12 sm:px-6 lg:px-8",
         dark
           ? "border-brand-gold/10 bg-brand-charcoal"
           : "border-brand-charcoal/10 bg-brand-bone",
@@ -38,11 +38,7 @@ export default function AwardsStrip({
         >
           {heading}
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          {awards.map((award) => (
-            <AwardBadge key={award.id} award={award} tone={tone} />
-          ))}
-        </div>
+        <AwardLogos size="md" className="mx-auto mt-6 max-w-xl" />
       </Reveal>
     </section>
   );

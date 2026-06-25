@@ -4,8 +4,7 @@ import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
 import { navRoutes } from "@/config/routes";
-import { awards } from "@/config/awards";
-import AwardBadge from "@/components/ui/award-badge";
+import AwardLogos from "@/components/ui/award-logos";
 
 export default function Footer() {
   return (
@@ -39,12 +38,8 @@ export default function Footer() {
               experiences for international hunters, families and corporate guests.
             </p>
 
-            {/* Award badges */}
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {awards.map((award) => (
-                <AwardBadge key={award.id} award={award} size="sm" tone="light" />
-              ))}
-            </div>
+            {/* Award logos */}
+            <AwardLogos size="sm" className="mt-6 max-w-xs" />
           </div>
 
           {/* Explore */}

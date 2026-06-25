@@ -7,7 +7,7 @@ import { Check, MessageCircle, CalendarCheck } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 import { hero } from "@/config/content";
 import { images } from "@/config/images";
-import { awards } from "@/config/awards";
+import AwardLogos from "@/components/ui/award-logos";
 import EnquiryForm from "@/components/forms/enquiry-form";
 
 export default function Hero() {
@@ -96,24 +96,7 @@ export default function Hero() {
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-ivory/50">
               Trusted &amp; Recognised
             </p>
-            <div className="mt-2.5 flex max-w-sm items-stretch gap-2.5">
-              {awards.map((award) => (
-                <div
-                  key={award.id}
-                  className="flex h-12 flex-1 items-center justify-center rounded-xl bg-white/95 px-2.5 shadow-sm ring-1 ring-black/5 sm:h-14 sm:px-3"
-                >
-                  {award.image && (
-                    <Image
-                      src={award.image}
-                      alt={award.name}
-                      width={140}
-                      height={56}
-                      className="max-h-9 w-auto object-contain sm:max-h-10"
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
+            <AwardLogos size="lg" className="mt-2.5 max-w-md" />
           </div>
         </motion.div>
 
