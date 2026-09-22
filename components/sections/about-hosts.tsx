@@ -3,7 +3,7 @@ import { Phone, MessageCircle } from "lucide-react";
 import { about } from "@/config/content";
 import { siteConfig } from "@/config/site-config";
 import SectionHeading from "@/components/ui/section-heading";
-import Reveal from "@/components/ui/reveal";
+import { Reveal, Stagger } from "@/engine/motion";
 
 export default function AboutHosts() {
   return (
@@ -15,9 +15,9 @@ export default function AboutHosts() {
           body={about.hosts.body}
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {siteConfig.hosts.map((host, i) => (
-            <Reveal key={host.name} delay={i * 0.1}>
+        <Stagger className="mt-12 grid gap-6 sm:grid-cols-2">
+          {siteConfig.hosts.map((host) => (
+            <Reveal key={host.name} preset="fadeUpItem">
               <div className="flex flex-col items-center rounded-3xl border border-brand-gold/12 bg-brand-ink/40 p-8 text-center">
                 {/* Premium monogram avatar (real host portraits to be added later) */}
                 <span className="flex h-20 w-20 items-center justify-center rounded-full border border-brand-gold/30 bg-brand-gold/10 font-display text-3xl font-bold text-brand-gold">
@@ -50,7 +50,7 @@ export default function AboutHosts() {
               </div>
             </Reveal>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

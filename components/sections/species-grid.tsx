@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { gameSpecies, speciesCategories } from "@/config/game-species";
 import SpeciesCard from "@/components/ui/species-card";
+import { Reveal, Stagger } from "@/engine/motion";
 import { cn } from "@/utils/cn";
 
 const FILTERS = ["All", ...speciesCategories] as const;
@@ -25,7 +26,7 @@ export default function SpeciesGrid() {
             type="button"
             onClick={() => setActive(filter)}
             className={cn(
-              "rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
+              "rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 active:scale-[0.98]",
               active === filter
                 ? "bg-brand-gold text-brand-ink shadow-gold"
                 : "border border-brand-gold/25 text-brand-ivory/75 hover:border-brand-gold/50 hover:text-brand-ivory"
@@ -36,12 +37,18 @@ export default function SpeciesGrid() {
         ))}
       </div>
 
-      {/* Grid */}
-      <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+      {/* Grid — re-keyed on the active filter so the new set settles in with a
+          governed, capped stagger (discovery, not a hard swap). */}
+      <Stagger
+        key={active}
+        className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4"
+      >
         {filtered.map((species) => (
-          <SpeciesCard key={species.slug} species={species} />
+          <Reveal key={species.slug} preset="fadeUpItem">
+            <SpeciesCard species={species} />
+          </Reveal>
         ))}
-      </div>
+      </Stagger>
     </div>
   );
 }

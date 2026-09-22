@@ -1,6 +1,6 @@
 import { huntingProcess } from "@/config/content";
 import SectionHeading from "@/components/ui/section-heading";
-import Reveal from "@/components/ui/reveal";
+import { Reveal, Stagger } from "@/engine/motion";
 
 export default function HuntingProcess() {
   return (
@@ -10,9 +10,9 @@ export default function HuntingProcess() {
           eyebrow={huntingProcess.eyebrow}
           title={huntingProcess.title}
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {huntingProcess.steps.map((step, i) => (
-            <Reveal key={step.n} delay={(i % 4) * 0.07}>
+        <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {huntingProcess.steps.map((step) => (
+            <Reveal key={step.n} preset="fadeUpItem">
               <div className="relative h-full rounded-2xl border border-brand-gold/12 bg-brand-ink/40 p-7">
                 <span className="font-display text-4xl font-bold text-brand-gold/30">
                   {step.n}
@@ -26,7 +26,7 @@ export default function HuntingProcess() {
               </div>
             </Reveal>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

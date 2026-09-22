@@ -17,10 +17,20 @@ Built on the Bbettr Website OS stack.
 - **Next.js 14.2.35** (App Router) · **React 18** · **TypeScript** (strict)
 - **Tailwind CSS** (custom African-luxury design system: charcoal / sand / ivory /
   bronze / gold; Playfair Display + DM Sans)
-- **framer-motion** (scroll reveals, hero motion) · **lucide-react** (icons)
+- **motion `^12`** via the Bbettr Website OS motion engine (`engine/motion`,
+  `MotionProvider` + strict `LazyMotion`) · **lucide-react** (icons)
 - **next/image** for image optimization (AVIF/WebP, responsive, lazy)
 - Forms are GoHighLevel-ready (currently compose a pre-filled WhatsApp enquiry)
 - Hosting target: **Vercel** · Code storage: **GitHub**
+
+## Motion character
+
+**`editorial`** — unhurried, luxurious (Website OS Motion System §3). Declared in
+`engine/motion/tokens.ts` (`DEFAULT_CHARACTER`); the fixed house ease
+`[0.22, 1, 0.36, 1]` is unchanged. Identity: *editorial stillness* — photography
+settles (`imageReveal`), typography stays composed, interactions are tactile but
+quiet. Reduced-motion honoured at the root (`reducedMotion="user"` + per-preset
+guards); no-JS reveal fallback (`NOSCRIPT_FALLBACK`) in the layout `<head>`.
 
 ## Pages (7)
 

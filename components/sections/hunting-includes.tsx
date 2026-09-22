@@ -2,7 +2,7 @@ import { Check, X } from "lucide-react";
 
 import { huntingIncludes } from "@/config/content";
 import SectionHeading from "@/components/ui/section-heading";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 
 export default function HuntingIncludes() {
   return (

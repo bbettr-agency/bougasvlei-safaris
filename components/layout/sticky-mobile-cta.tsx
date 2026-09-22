@@ -18,14 +18,14 @@ export default function StickyMobileCta() {
           href={siteConfig.whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-[13px] font-bold text-white"
+          className="flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-[13px] font-bold text-white transition-transform duration-200 active:scale-[0.98]"
         >
           <MessageCircle className="h-4 w-4 shrink-0" />
           <span className="whitespace-nowrap">WhatsApp</span>
         </a>
         <Link
           href="/contact-us"
-          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-brand-gold px-3.5 py-3.5 text-[13px] font-bold text-brand-ink"
+          className="flex flex-1 items-center justify-center gap-2 rounded-full bg-brand-gold px-3.5 py-3.5 text-[13px] font-bold text-brand-ink transition-transform duration-200 active:scale-[0.98]"
         >
           <CalendarCheck className="h-4 w-4 shrink-0" />
           <span className="whitespace-nowrap">Request Availability</span>

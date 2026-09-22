@@ -1,23 +1,24 @@
 import { whyInternational } from "@/config/content";
 import { images } from "@/config/images";
 import ImageFrame from "@/components/ui/image-frame";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 
 /** "Why International Hunters Choose South Africa" — international SEO + conversion (hunting page). */
 export default function WhyInternational() {
   return (
     <section className="relative overflow-hidden bg-brand-charcoal px-5 py-20 sm:px-6 md:py-28 lg:px-8">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        <Reveal>
-          <ImageFrame
-            src={images.giraffe.src}
-            alt={images.giraffe.alt}
-            label="South African bushveld"
-            className="aspect-[4/5] w-full shadow-card"
-          />
-        </Reveal>
+        {/* Photography breathes */}
+        <ImageFrame
+          settle
+          src={images.giraffe.src}
+          alt={images.giraffe.alt}
+          label="South African bushveld"
+          className="aspect-[4/5] w-full shadow-card"
+        />
 
-        <Reveal delay={0.1}>
+        {/* Copy — composed */}
+        <Reveal>
           <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
             <span className="h-px w-6 bg-brand-gold/60" />
             {whyInternational.eyebrow}

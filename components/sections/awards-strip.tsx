@@ -1,5 +1,5 @@
 import AwardLogos from "@/components/ui/award-logos";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 import { cn } from "@/utils/cn";
 
 type AwardsStripProps = {

@@ -5,7 +5,7 @@ import { finalCta } from "@/config/content";
 import { siteConfig } from "@/config/site-config";
 import { images } from "@/config/images";
 import EnquiryForm from "@/components/forms/enquiry-form";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 
 type FinalCtaProps = {
   id?: string;

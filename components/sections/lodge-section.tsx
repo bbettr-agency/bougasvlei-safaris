@@ -5,7 +5,7 @@ import { lodge } from "@/config/content";
 import { images } from "@/config/images";
 import { siteConfig } from "@/config/site-config";
 import ImageFrame from "@/components/ui/image-frame";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 
 export default function LodgeSection() {
   return (
@@ -40,7 +40,7 @@ export default function LodgeSection() {
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
               href="/contact-us"
-              className="group inline-flex items-center gap-2 rounded-full bg-brand-charcoal px-6 py-3 text-sm font-bold text-brand-ivory transition-all hover:bg-brand-bronze"
+              className="group inline-flex items-center gap-2 rounded-full bg-brand-charcoal px-6 py-3 text-sm font-bold text-brand-ivory transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-bronze active:translate-y-0 active:scale-[0.98]"
             >
               Enquire About the Lodge
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -49,36 +49,37 @@ export default function LodgeSection() {
               href={siteConfig.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-brand-charcoal/25 px-6 py-3 text-sm font-bold text-brand-charcoal transition-all hover:border-brand-bronze hover:text-brand-bronze"
+              className="inline-flex items-center gap-2 rounded-full border border-brand-charcoal/25 px-6 py-3 text-sm font-bold text-brand-charcoal transition-all duration-200 hover:border-brand-bronze hover:text-brand-bronze active:scale-[0.98]"
             >
               WhatsApp Us
             </a>
           </div>
         </Reveal>
 
-        {/* Images */}
-        <Reveal delay={0.1} className="order-1 lg:order-2">
-          <div className="grid grid-cols-2 gap-4">
-            <ImageFrame
-              src={images.firepit.src}
-              alt={images.firepit.alt}
-              label="Firepit / boma"
-              className="col-span-2 aspect-[16/10] w-full shadow-cardLight"
-            />
-            <ImageFrame
-              src={images.diningTable.src}
-              alt={images.diningTable.alt}
-              label="Lodge dining"
-              className="aspect-square w-full shadow-cardLight"
-            />
-            <ImageFrame
-              src={images.platter.src}
-              alt={images.platter.alt}
-              label="Bush catering"
-              className="aspect-square w-full shadow-cardLight"
-            />
-          </div>
-        </Reveal>
+        {/* Images — each photograph breathes (imageReveal) */}
+        <div className="order-1 grid grid-cols-2 gap-4 lg:order-2">
+          <ImageFrame
+            settle
+            src={images.firepit.src}
+            alt={images.firepit.alt}
+            label="Firepit / boma"
+            className="col-span-2 aspect-[16/10] w-full shadow-cardLight"
+          />
+          <ImageFrame
+            settle
+            src={images.diningTable.src}
+            alt={images.diningTable.alt}
+            label="Lodge dining"
+            className="aspect-square w-full shadow-cardLight"
+          />
+          <ImageFrame
+            settle
+            src={images.platter.src}
+            alt={images.platter.alt}
+            label="Bush catering"
+            className="aspect-square w-full shadow-cardLight"
+          />
+        </div>
       </div>
     </section>
   );

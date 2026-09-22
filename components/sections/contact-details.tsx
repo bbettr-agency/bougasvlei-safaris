@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin, MessageCircle, Clock } from "lucide-react";
 
 import { siteConfig } from "@/config/site-config";
 import EnquiryForm from "@/components/forms/enquiry-form";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 
 const hostWhatsApp = [siteConfig.whatsappAndre, siteConfig.whatsappLida];
 
@@ -65,7 +65,7 @@ export default function ContactDetails() {
                   href={hostWhatsApp[i]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] px-3.5 py-2 text-xs font-bold text-white transition-all hover:brightness-110"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#25D366] px-3.5 py-2 text-xs font-bold text-white transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
                 >
                   <MessageCircle className="h-3.5 w-3.5" />
                   WhatsApp

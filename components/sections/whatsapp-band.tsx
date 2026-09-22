@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 
 export default function WhatsAppBand() {
   return (
@@ -25,7 +25,7 @@ export default function WhatsAppBand() {
             href={siteConfig.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-base font-bold text-white transition-all hover:brightness-110"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-base font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0 active:scale-[0.98]"
           >
             <MessageCircle className="h-5 w-5" />
             {siteConfig.ctaWhatsApp}

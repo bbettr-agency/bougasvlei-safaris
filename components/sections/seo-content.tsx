@@ -4,7 +4,7 @@ import { Check, ArrowRight, CalendarCheck } from "lucide-react";
 import { seoSection } from "@/config/content";
 import { images } from "@/config/images";
 import ImageFrame from "@/components/ui/image-frame";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 
 /**
  * Homepage SEO content section. Targets local + national hunting-safari intent
@@ -66,7 +66,7 @@ export default function SeoContent() {
           <div className="mt-8">
             <Link
               href="/contact-us"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-gold px-7 py-4 text-base font-bold text-brand-ink shadow-gold transition-all duration-300 hover:bg-brand-sandLight"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-gold px-7 py-4 text-base font-bold text-brand-ink shadow-gold transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-sandLight hover:shadow-glow active:translate-y-0 active:scale-[0.98]"
             >
               <CalendarCheck className="h-5 w-5" />
               Request Availability
@@ -74,16 +74,16 @@ export default function SeoContent() {
           </div>
         </Reveal>
 
-        {/* Image */}
-        <Reveal delay={0.1}>
-          <div className="relative">
-            <ImageFrame
-              src={images.sable.src}
-              alt="Sable bull in the bushveld at the Bougasvlei Safaris game farm in Thabazimbi, Limpopo"
-              label="Bushveld wildlife"
-              className="aspect-[4/5] w-full shadow-card"
-            />
-            <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-brand-gold/20 bg-brand-charcoal/90 px-5 py-4 shadow-ink backdrop-blur sm:block">
+        {/* Image — breathes (imageReveal); the location tag stays composed */}
+        <div className="relative">
+          <ImageFrame
+            settle
+            src={images.sable.src}
+            alt="Sable bull in the bushveld at the Bougasvlei Safaris game farm in Thabazimbi, Limpopo"
+            label="Bushveld wildlife"
+            className="aspect-[4/5] w-full shadow-card"
+          />
+          <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-brand-gold/20 bg-brand-charcoal/90 px-5 py-4 shadow-ink backdrop-blur sm:block">
               <p className="font-display text-lg font-bold text-brand-gold">
                 Thabazimbi · Limpopo
               </p>
@@ -91,8 +91,7 @@ export default function SeoContent() {
                 Hunting &amp; bushveld lodge
               </p>
             </div>
-          </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

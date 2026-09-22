@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ImageIcon } from "lucide-react";
+import { Reveal } from "@/engine/motion";
 import { cn } from "@/utils/cn";
 
 type ImageFrameProps = {
@@ -14,6 +15,13 @@ type ImageFrameProps = {
   priority?: boolean;
   sizes?: string;
   rounded?: string;
+  /**
+   * Editorial photography settle — a slow `imageReveal` scale (1.06 → 1) on the
+   * image as it enters view. Scale-only (never opacity), so a `priority` image
+   * still preloads as an LCP candidate. Reserved for feature photography; leave
+   * off for grids, thumbnails and SVG illustrations.
+   */
+  settle?: boolean;
 };
 
 /**
@@ -31,9 +39,25 @@ export default function ImageFrame({
   priority = false,
   sizes = "(max-width: 768px) 100vw, 50vw",
   rounded = "rounded-3xl",
+  settle = false,
 }: ImageFrameProps) {
   const [failed, setFailed] = useState(false);
   const showPlaceholder = !src || failed;
+
+  const image = (
+    <Image
+      src={src as string}
+      alt={alt}
+      fill
+      sizes={sizes}
+      priority={priority}
+      // SVG assets (game-species illustrations) are served straight from
+      // /public — the Next image optimizer rejects SVGs, so skip it for them.
+      unoptimized={(src as string)?.toLowerCase().endsWith(".svg")}
+      onError={() => setFailed(true)}
+      className={cn("object-cover", imageClassName)}
+    />
+  );
 
   return (
     <div
@@ -51,19 +75,13 @@ export default function ImageFrame({
             {label ?? "Photo to be added"}
           </span>
         </div>
+      ) : settle ? (
+        // Photography breathes: a slow, opacity-free scale settle inside the frame.
+        <Reveal preset="imageReveal" as="div" className="absolute inset-0">
+          {image}
+        </Reveal>
       ) : (
-        <Image
-          src={src as string}
-          alt={alt}
-          fill
-          sizes={sizes}
-          priority={priority}
-          // SVG assets (game-species illustrations) are served straight from
-          // /public — the Next image optimizer rejects SVGs, so skip it for them.
-          unoptimized={(src as string).toLowerCase().endsWith(".svg")}
-          onError={() => setFailed(true)}
-          className={cn("object-cover", imageClassName)}
-        />
+        image
       )}
     </div>
   );

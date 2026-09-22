@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { galleryFeatured } from "@/config/gallery";
 import ImageFrame from "@/components/ui/image-frame";
 import SectionHeading from "@/components/ui/section-heading";
-import Reveal from "@/components/ui/reveal";
+import { Reveal } from "@/engine/motion";
 import { cn } from "@/utils/cn";
 
 export default function GalleryPreview() {
@@ -39,7 +39,7 @@ export default function GalleryPreview() {
         <div className="mt-12 text-center">
           <Link
             href="/gallery"
-            className="group inline-flex items-center gap-2 rounded-full border border-brand-gold/40 px-7 py-3.5 text-sm font-bold text-brand-gold transition-all hover:bg-brand-gold hover:text-brand-ink"
+            className="group inline-flex items-center gap-2 rounded-full border border-brand-gold/40 px-7 py-3.5 text-sm font-bold text-brand-gold transition-all duration-200 hover:bg-brand-gold hover:text-brand-ink active:scale-[0.98]"
           >
             View Full Gallery
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
