@@ -1,85 +1,55 @@
-import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import Image from "next/image";
 
+import { Reveal } from "@/engine/motion";
 import { lodge } from "@/config/content";
 import { images } from "@/config/images";
-import { siteConfig } from "@/config/site-config";
-import ImageFrame from "@/components/ui/image-frame";
-import { Reveal } from "@/engine/motion";
+import Cta from "@/components/ui/cta";
 
 export default function LodgeSection() {
   return (
-    <section className="relative overflow-hidden bg-brand-ivory px-5 py-20 sm:px-6 md:py-28 lg:px-8">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        {/* Copy (first on desktop) */}
-        <Reveal className="order-2 lg:order-1">
-          <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-bronze">
-            <span className="h-px w-6 bg-brand-bronze/60" />
-            {lodge.eyebrow}
-          </div>
-          <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] tracking-tight text-brand-charcoal sm:text-4xl lg:text-[2.6rem]">
-            {lodge.title}
+    <section className="relative flex min-h-[88svh] items-end overflow-hidden bg-brand-ink text-brand-ivory">
+      {/* Full-bleed lodge photography at dusk */}
+      <div className="absolute inset-0">
+        {images.firepit.src && (
+          <Reveal preset="imageReveal" as="div" className="absolute inset-0">
+            <Image
+              src={images.firepit.src}
+              alt={images.firepit.alt}
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </Reveal>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-brand-ink/55 to-brand-ink/10" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-28 sm:px-8 sm:pb-20">
+        <Reveal className="max-w-xl">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-brand-sand">
+            The lodge
+          </p>
+          <h2 className="mt-6 text-[2rem] font-medium leading-[1.12] tracking-[-0.02em] text-brand-ivory sm:text-[2.5rem]">
+            An eco-friendly bushveld lodge, built for slow evenings
           </h2>
-          <p className="mt-5 text-base leading-7 text-brand-charcoal/70 md:text-lg">
+          <p className="mt-6 text-base leading-relaxed text-brand-ivory/75">
             {lodge.body}
           </p>
 
-          <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-            {lodge.features.map((feature) => (
-              <li key={feature} className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-bronze/15 text-brand-bronze">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                </span>
-                <span className="text-sm font-medium leading-6 text-brand-charcoal/80">
-                  {feature}
-                </span>
+          <ul className="mt-8 grid max-w-lg grid-cols-1 gap-x-8 gap-y-2.5 border-t border-brand-ivory/15 pt-6 text-sm text-brand-ivory/70 sm:grid-cols-2">
+            {lodge.features.map((f) => (
+              <li key={f} className="leading-snug">
+                {f}
               </li>
             ))}
           </ul>
 
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="/contact-us"
-              className="group inline-flex items-center gap-2 rounded-full bg-brand-charcoal px-6 py-3 text-sm font-bold text-brand-ivory transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-bronze active:translate-y-0 active:scale-[0.98]"
-            >
-              Enquire About the Lodge
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <a
-              href={siteConfig.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-brand-charcoal/25 px-6 py-3 text-sm font-bold text-brand-charcoal transition-all duration-200 hover:border-brand-bronze hover:text-brand-bronze active:scale-[0.98]"
-            >
-              WhatsApp Us
-            </a>
+          <div className="mt-9">
+            <Cta href="#enquire" variant="link">
+              Enquire about a stay
+            </Cta>
           </div>
         </Reveal>
-
-        {/* Images — each photograph breathes (imageReveal) */}
-        <div className="order-1 grid grid-cols-2 gap-4 lg:order-2">
-          <ImageFrame
-            settle
-            src={images.firepit.src}
-            alt={images.firepit.alt}
-            label="Firepit / boma"
-            className="col-span-2 aspect-[16/10] w-full shadow-cardLight"
-          />
-          <ImageFrame
-            settle
-            src={images.diningTable.src}
-            alt={images.diningTable.alt}
-            label="Lodge dining"
-            className="aspect-square w-full shadow-cardLight"
-          />
-          <ImageFrame
-            settle
-            src={images.platter.src}
-            alt={images.platter.alt}
-            label="Bush catering"
-            className="aspect-square w-full shadow-cardLight"
-          />
-        </div>
       </div>
     </section>
   );

@@ -32,20 +32,19 @@ export default function SectionHeading({
       {eyebrow && (
         <div
           className={cn(
-            "inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em]",
-            light ? "text-brand-gold" : "text-brand-bronze"
+            "text-[0.7rem] font-semibold uppercase tracking-[0.24em]",
+            light ? "text-brand-sand/80" : "text-brand-bronze"
           )}
         >
-          <span className="h-px w-6 bg-brand-gold/60" />
           {eyebrow}
         </div>
       )}
       <Title
         className={cn(
-          "mt-4 font-display font-bold leading-[1.1] tracking-tight",
+          "mt-5 font-medium leading-[1.1] tracking-[-0.02em]",
           as === "h1"
             ? "text-[2rem] sm:text-5xl lg:text-6xl"
-            : "text-3xl sm:text-4xl lg:text-[2.75rem]",
+            : "text-[1.9rem] sm:text-4xl lg:text-[2.6rem]",
           light ? "text-brand-ivory" : "text-brand-charcoal"
         )}
       >
@@ -54,7 +53,7 @@ export default function SectionHeading({
       {body && (
         <p
           className={cn(
-            "mt-5 text-base leading-7 md:text-lg",
+            "mt-5 text-base leading-relaxed md:text-lg",
             align === "center" ? "mx-auto max-w-2xl" : "",
             light ? "text-brand-ivory/70" : "text-brand-charcoal/70"
           )}

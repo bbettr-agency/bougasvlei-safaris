@@ -32,8 +32,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
-        body: ["var(--font-body)", "system-ui", "sans-serif"],
+        // Single family — Manrope. `display`/`body` kept as aliases so existing
+        // font-display / font-body utilities resolve to Manrope during the
+        // migration; new work uses the default (font-sans) or explicit weights.
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-sans)", "system-ui", "sans-serif"],
+        body: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       borderRadius: {
         "2xl": "1.25rem",

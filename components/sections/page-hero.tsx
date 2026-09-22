@@ -35,8 +35,7 @@ export default function PageHero({
             className="object-cover"
           />
         )}
-        <div className="absolute inset-0 bg-hero-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/95 via-brand-ink/75 to-brand-ink/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-brand-ink/60 to-brand-ink/25" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 pb-16 pt-36 sm:px-6 lg:px-8 lg:pb-20 lg:pt-40">
@@ -53,22 +52,21 @@ export default function PageHero({
         </nav>
 
         {eyebrow && (
-          <div className="mt-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
-            <span className="h-px w-6 bg-brand-gold/60" />
+          <div className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-brand-sand/80">
             {eyebrow}
           </div>
         )}
 
         <h1
           className={cn(
-            "mt-4 max-w-3xl font-display text-[2rem] font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]"
+            "mt-4 max-w-3xl text-[2rem] font-medium leading-[1.08] tracking-[-0.02em] sm:text-5xl lg:text-[3.4rem]"
           )}
         >
           {title}
         </h1>
 
         {subtitle && (
-          <p className="mt-5 max-w-2xl text-base leading-7 text-brand-ivory/75 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-brand-ivory/70 md:text-lg">
             {subtitle}
           </p>
         )}

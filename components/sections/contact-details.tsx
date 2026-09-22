@@ -117,7 +117,7 @@ export default function ContactDetails() {
         {/* Form */}
         <Reveal delay={0.1}>
           <div id="enquire" className="scroll-mt-28 lg:sticky lg:top-28">
-            <EnquiryForm variant="page" instanceId="contact" />
+            <EnquiryForm tone="dark" instanceId="contact" />
           </div>
         </Reveal>
       </div>

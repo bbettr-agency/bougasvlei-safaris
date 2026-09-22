@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
+  /* Single family — Manrope (loaded via next/font as --font-sans). */
+  --font-sans: "Manrope", "Manrope Placeholder", ui-sans-serif, system-ui,
+    sans-serif;
+  /* Back-compat aliases so any lingering font-display/body utilities resolve. */
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
 }
 
 html {
@@ -17,7 +21,9 @@ html {
 body {
   background: #161310;
   color: #f5f0e6;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  line-height: 1.65;
   overflow-x: hidden;
 }
 
@@ -25,18 +31,43 @@ body {
   box-sizing: border-box;
 }
 
+/* ── Editorial type defaults ──────────────────────────────────────────────────
+   Hierarchy comes from scale + space + tracking, not extreme weight. Headings
+   default to 600 with tight tracking; components lighten to 500 for display.
+   Utilities (font-medium/semibold) still override where a section needs it. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance; /* prevents ugly orphan line breaks on responsive headings */
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Tabular, lining figures for statistics / counts. */
+.nums {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum", "lnum";
+}
+
 ::selection {
   background: #c9a24b;
   color: #161310;
 }
 
-/* Subtle film-grain / topographic texture helper */
+/* Subtle film-grain / topographic texture helper (used deliberately on warm
+   ivory fields, not as decoration). */
 .bg-grain {
   background-image: radial-gradient(
-    rgba(201, 162, 75, 0.06) 1px,
+    rgba(80, 60, 30, 0.05) 1px,
     transparent 1px
   );
-  background-size: 4px 4px;
+  background-size: 3px 3px;
 }
 
 /* Scrollbar */

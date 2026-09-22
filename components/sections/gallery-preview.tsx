@@ -1,49 +1,46 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
-import { galleryFeatured } from "@/config/gallery";
+import { images } from "@/config/images";
 import ImageFrame from "@/components/ui/image-frame";
-import SectionHeading from "@/components/ui/section-heading";
-import { Reveal } from "@/engine/motion";
-import { cn } from "@/utils/cn";
+import Cta from "@/components/ui/cta";
+
+const spread = [
+  { img: images.buffaloWaterhole, span: "col-span-2 row-span-2 aspect-[4/3] lg:aspect-auto" },
+  { img: images.firepit, span: "aspect-square" },
+  { img: images.trophyHunt, span: "aspect-square" },
+  { img: images.diningTable, span: "aspect-square" },
+  { img: images.giraffe, span: "aspect-square" },
+];
 
 export default function GalleryPreview() {
   return (
-    <section className="relative bg-brand-charcoal px-5 py-20 sm:px-6 md:py-28 lg:px-8">
+    <section className="bg-brand-ink px-6 py-24 sm:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Gallery"
-          title="A glimpse of the Bougasvlei experience"
-          body="The lodge, the bushveld, the hunt and the hospitality — a few of our favourite moments."
-        />
-
-        <Reveal className="mt-12">
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {galleryFeatured.map((item, i) => (
-              <ImageFrame
-                key={item.src}
-                src={item.src}
-                alt={item.alt}
-                label={item.category}
-                className={cn(
-                  "w-full shadow-card",
-                  i === 0
-                    ? "col-span-2 row-span-2 aspect-[4/3] lg:aspect-auto"
-                    : "aspect-square"
-                )}
-              />
-            ))}
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-brand-sand/80">
+              The gallery
+            </p>
+            <h2 className="mt-6 text-[2rem] font-medium leading-[1.12] tracking-[-0.02em] text-brand-ivory sm:text-[2.5rem]">
+              Bougasvlei, in photographs
+            </h2>
           </div>
-        </Reveal>
+          <Cta href="/gallery" variant="link">
+            View the full gallery
+          </Cta>
+        </div>
 
-        <div className="mt-12 text-center">
-          <Link
-            href="/gallery"
-            className="group inline-flex items-center gap-2 rounded-full border border-brand-gold/40 px-7 py-3.5 text-sm font-bold text-brand-gold transition-all duration-200 hover:bg-brand-gold hover:text-brand-ink active:scale-[0.98]"
-          >
-            View Full Gallery
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:grid-rows-2">
+          {spread.map((item, i) => (
+            <ImageFrame
+              key={i}
+              settle
+              rounded="rounded-sm"
+              src={item.img.src}
+              alt={item.img.alt}
+              label="Bougasvlei"
+              className={`w-full ${item.span}`}
+              sizes="(max-width: 768px) 50vw, 25vw"
+            />
+          ))}
         </div>
       </div>
     </section>

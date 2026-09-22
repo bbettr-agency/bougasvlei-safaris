@@ -1,38 +1,75 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
-import { gameSpecies } from "@/config/game-species";
-import SectionHeading from "@/components/ui/section-heading";
-import SpeciesCard from "@/components/ui/species-card";
 import { Reveal, Stagger } from "@/engine/motion";
+import { getSpeciesBySlug } from "@/config/game-species";
+import ImageFrame from "@/components/ui/image-frame";
+import Cta from "@/components/ui/cta";
+
+// A curated handful for the homepage — begins the field-guide identity.
+// Scientific names are objective taxonomy (not marketing copy).
+const featured = [
+  { slug: "cape-buffalo", latin: "Syncerus caffer" },
+  { slug: "sable", latin: "Hippotragus niger" },
+  { slug: "cape-kudu", latin: "Tragelaphus strepsiceros" },
+  { slug: "giraffe", latin: "Giraffa camelopardalis" },
+  { slug: "blue-wildebeest", latin: "Connochaetes taurinus" },
+  { slug: "zebra", latin: "Equus quagga" },
+]
+  .map((f) => ({ ...f, species: getSpeciesBySlug(f.slug) }))
+  .filter((f) => f.species);
 
 export default function SpeciesPreview() {
-  const preview = gameSpecies.slice(0, 8);
   return (
-    <section className="relative bg-brand-ink px-5 py-20 sm:px-6 md:py-28 lg:px-8">
+    <section className="bg-brand-charcoal px-6 py-24 sm:px-8 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Game Species"
-          title="Hunt 20+ species across pristine bushveld"
-          body="From dangerous game to classic plains game, build the safari of your dreams with quality, ethically managed animals."
-        />
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-xl">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-brand-sand/80">
+              The game
+            </p>
+            <h2 className="mt-6 text-[2rem] font-medium leading-[1.12] tracking-[-0.02em] text-brand-ivory sm:text-[2.5rem]">
+              Twenty-plus species across the property
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-relaxed text-brand-ivory/55">
+            From dangerous game to classic plains game — a curated field guide to
+            what you can hunt at Bougasvlei.
+          </p>
+        </div>
 
-        <Stagger className="mt-12 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
-          {preview.map((species) => (
-            <Reveal key={species.slug} preset="fadeUpItem">
-              <SpeciesCard species={species} />
+        <Stagger className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 lg:gap-x-10">
+          {featured.map(({ slug, latin, species }) => (
+            <Reveal key={slug} preset="fadeUpItem" className="group">
+              <div className="relative aspect-[5/4] overflow-hidden bg-brand-ink/40">
+                <ImageFrame
+                  rounded="rounded-none"
+                  src={species!.image.src}
+                  alt={species!.image.alt}
+                  label={species!.name}
+                  className="h-full w-full"
+                  imageClassName="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  sizes="(max-width: 768px) 45vw, 30vw"
+                />
+              </div>
+              <div className="mt-4 flex items-baseline justify-between gap-3 border-t border-brand-ivory/12 pt-3.5">
+                <div>
+                  <h3 className="text-[1.05rem] font-medium leading-tight text-brand-ivory">
+                    {species!.name}
+                  </h3>
+                  <p className="mt-0.5 text-xs italic text-brand-ivory/45">
+                    {latin}
+                  </p>
+                </div>
+                <span className="shrink-0 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-brand-sand/70">
+                  {species!.category}
+                </span>
+              </div>
             </Reveal>
           ))}
         </Stagger>
 
-        <div className="mt-12 text-center">
-          <Link
-            href="/game-species"
-            className="group inline-flex items-center gap-2 rounded-full border border-brand-gold/40 px-7 py-3.5 text-sm font-bold text-brand-gold transition-all duration-200 hover:bg-brand-gold hover:text-brand-ink active:scale-[0.98]"
-          >
-            View All Game Species
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+        <div className="mt-14 border-t border-brand-ivory/12 pt-8">
+          <Cta href="/game-species" variant="link">
+            View all game species
+          </Cta>
         </div>
       </div>
     </section>

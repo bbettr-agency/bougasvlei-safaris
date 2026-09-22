@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { Manrope } from "next/font/google";
 
 import { createMetadata } from "@/lib/metadata";
 import {
@@ -15,17 +15,12 @@ import Footer from "@/components/layout/footer";
 import FloatingWhatsApp from "@/components/layout/floating-whatsapp";
 import StickyMobileCta from "@/components/layout/sticky-mobile-cta";
 
-const body = DM_Sans({
+// Single family — Manrope. Only the weights the design actually uses.
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-sans",
   display: "swap",
-});
-
-const display = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = createMetadata();
@@ -45,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${body.variable} ${display.variable}`}
+      className={manrope.variable}
       suppressHydrationWarning
     >
       <head>

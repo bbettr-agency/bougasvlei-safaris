@@ -1,96 +1,51 @@
-import Link from "next/link";
-import { Check, ArrowRight, CalendarCheck } from "lucide-react";
-
+import { Reveal } from "@/engine/motion";
 import { seoSection } from "@/config/content";
 import { images } from "@/config/images";
 import ImageFrame from "@/components/ui/image-frame";
-import { Reveal } from "@/engine/motion";
+import Cta from "@/components/ui/cta";
 
 /**
- * Homepage SEO content section. Targets local + national hunting-safari intent
- * (Thabazimbi / Limpopo / South Africa) while reading naturally for visitors.
- * Placed after the hunting/lodge sections, before the gallery preview.
+ * Region / SEO prose. Text-dominant editorial block that keeps the local +
+ * national search intent while reading naturally. Internal links are text
+ * links, not pills.
  */
 export default function SeoContent() {
   return (
-    <section className="relative overflow-hidden bg-brand-ink px-5 py-20 sm:px-6 md:py-28 lg:px-8">
-      <div className="absolute inset-0 bg-sand-glow" />
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-        {/* Copy */}
-        <Reveal>
-          <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
-            <span className="h-px w-6 bg-brand-gold/60" />
-            {seoSection.eyebrow}
-          </div>
-          <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] tracking-tight text-brand-ivory sm:text-4xl lg:text-[2.6rem]">
+    <section className="bg-brand-ink px-6 py-24 sm:px-8 lg:py-32">
+      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-7">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-brand-sand/80">
+            In the Limpopo bushveld
+          </p>
+          <h2 className="mt-6 max-w-[18ch] text-[1.9rem] font-medium leading-[1.14] tracking-[-0.02em] text-brand-ivory sm:text-[2.4rem]">
             {seoSection.title}
           </h2>
 
-          <div className="mt-5 space-y-4">
+          <Reveal className="mt-8 max-w-2xl space-y-5 text-[1.02rem] leading-[1.75] text-brand-ivory/65">
             {seoSection.paragraphs.map((para, i) => (
-              <p key={i} className="text-base leading-7 text-brand-ivory/70">
-                {para}
-              </p>
+              <p key={i}>{para}</p>
             ))}
-          </div>
+          </Reveal>
 
-          {/* Highlights */}
-          <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-            {seoSection.highlights.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-gold/15 text-brand-gold">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                </span>
-                <span className="text-sm font-medium leading-6 text-brand-ivory/85">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-
-          {/* Internal links */}
-          <div className="mt-8 flex flex-wrap gap-2.5">
+          <div className="mt-10 flex flex-col gap-4 border-t border-brand-ivory/12 pt-8 sm:flex-row sm:flex-wrap sm:gap-x-10">
             {seoSection.links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-brand-gold/30 px-4 py-2.5 text-sm font-semibold text-brand-ivory/85 transition-all hover:border-brand-gold hover:text-brand-gold"
-              >
+              <Cta key={link.href} href={link.href} variant="link">
                 {link.label}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              </Cta>
             ))}
           </div>
+        </div>
 
-          {/* Strong CTA */}
-          <div className="mt-8">
-            <Link
-              href="/contact-us"
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-gold px-7 py-4 text-base font-bold text-brand-ink shadow-gold transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-sandLight hover:shadow-glow active:translate-y-0 active:scale-[0.98]"
-            >
-              <CalendarCheck className="h-5 w-5" />
-              Request Availability
-            </Link>
-          </div>
-        </Reveal>
-
-        {/* Image — breathes (imageReveal); the location tag stays composed */}
-        <div className="relative">
+        {/* A single quiet portrait — minimal framing, lets the animal breathe */}
+        <div className="lg:col-span-5">
           <ImageFrame
             settle
+            rounded="rounded-sm"
             src={images.sable.src}
-            alt="Sable bull in the bushveld at the Bougasvlei Safaris game farm in Thabazimbi, Limpopo"
-            label="Bushveld wildlife"
-            className="aspect-[4/5] w-full shadow-card"
+            alt="Sable bull in the bushveld at the Bougasvlei Safaris game farm, Thabazimbi"
+            className="aspect-[4/5] w-full lg:h-full"
+            sizes="(max-width: 1024px) 100vw, 40vw"
           />
-          <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-brand-gold/20 bg-brand-charcoal/90 px-5 py-4 shadow-ink backdrop-blur sm:block">
-              <p className="font-display text-lg font-bold text-brand-gold">
-                Thabazimbi · Limpopo
-              </p>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-brand-ivory/60">
-                Hunting &amp; bushveld lodge
-              </p>
-            </div>
         </div>
       </div>
     </section>

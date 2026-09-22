@@ -1,23 +1,22 @@
 import Image from "next/image";
-import { Check, MessageCircle, CalendarCheck } from "lucide-react";
 
 import { Reveal, heroStack } from "@/engine/motion";
 import { siteConfig } from "@/config/site-config";
 import { hero } from "@/config/content";
 import { images } from "@/config/images";
-import AwardLogos from "@/components/ui/award-logos";
-import EnquiryForm from "@/components/forms/enquiry-form";
+import { awards } from "@/config/awards";
+import Cta from "@/components/ui/cta";
 
-// Editorial hero entrance ladder. The H1 (and the priority photo) are the LCP —
-// they paint immediately and never opacity-animate. Supporting content settles
-// in, transform-only, so nothing essential is ever hidden.
+// Editorial hero ladder. H1 is the LCP — painted immediately, never faded.
 const seq = heroStack();
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-brand-ink text-brand-ivory">
-      {/* Background photography — slow imageReveal settle (scale only; the
-          priority preload is preserved because opacity is never touched). */}
+    <section
+      id="top"
+      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-brand-ink text-brand-ivory"
+    >
+      {/* Full-bleed photography — the land carries the hero. Scale-only settle. */}
       <div className="absolute inset-0">
         {images.heroHome.src && (
           <Reveal eager preset="imageReveal" as="div" className="absolute inset-0">
@@ -27,101 +26,59 @@ export default function Hero() {
               fill
               priority
               sizes="100vw"
-              className="object-cover"
+              className="object-cover object-[50%_40%]"
             />
           </Reveal>
         )}
-        <div className="absolute inset-0 bg-hero-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/95 via-brand-ink/70 to-brand-ink/40" />
-        <div className="absolute inset-0 bg-radial-glow" />
+        {/* One directional scrim, weighted to the bottom where the type sits. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-brand-ink/45 to-brand-ink/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/70 to-transparent" />
       </div>
 
-      {/* Soft glow orbs */}
-      <div className="pointer-events-none absolute -top-24 right-1/4 h-[420px] w-[420px] rounded-full bg-brand-gold/15 blur-[140px]" />
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-14 pt-32 sm:px-8 sm:pb-20 lg:pb-24">
+        {/* Place */}
+        <div className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-brand-sand">
+          {hero.eyebrow}
+        </div>
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 items-center gap-10 px-5 pb-28 pt-28 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:px-8 lg:pb-20 lg:pt-32">
-        {/* LEFT — copy + CTAs */}
-        <div>
-          {/* Eyebrow — present immediately, above the H1 */}
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-gold backdrop-blur">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-brand-gold shadow-[0_0_8px_rgba(201,162,75,0.9)]" />
-            {hero.eyebrow}
+        {/* Headline — the LCP. Manrope medium, generous, balanced wrapping. */}
+        <h1
+          {...seq.lcp}
+          className="mt-5 max-w-[16ch] font-medium leading-[1.03] tracking-[-0.02em] text-[2.6rem] sm:text-6xl lg:text-[4.5rem]"
+        >
+          Hunting safaris &amp; a bushveld lodge in the heart of Limpopo
+        </h1>
+
+        <Reveal {...seq.step(0)}>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-brand-ivory/75 sm:text-lg">
+            {hero.subheadline}
+          </p>
+        </Reveal>
+
+        {/* Actions — one primary, WhatsApp as a quiet second path */}
+        <Reveal {...seq.step(1)}>
+          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <Cta href="#enquire" variant="primary" arrow>
+              {siteConfig.cta}
+            </Cta>
+            <Cta href={siteConfig.whatsappLink} external variant="link">
+              Message us on WhatsApp
+            </Cta>
           </div>
+        </Reveal>
 
-          {/* H1 — the LCP. Painted at first frame, never animated. */}
-          <h1
-            {...seq.lcp}
-            className="mt-6 max-w-2xl font-display text-[2.1rem] font-bold leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl"
-          >
-            {hero.headlineLead}{" "}
-            <span className="bg-gradient-to-r from-brand-gold to-brand-sand bg-clip-text text-transparent">
-              {hero.headlineHighlight}
-            </span>{" "}
-            {hero.headlineTail}
-          </h1>
-
-          {/* Supporting copy */}
-          <Reveal {...seq.step(0)}>
-            <p className="mt-5 max-w-xl text-base leading-7 text-brand-ivory/75 md:text-lg">
-              {hero.subheadline}
-            </p>
-          </Reveal>
-
-          {/* Trust points */}
-          <Reveal {...seq.step(1)}>
-            <ul className="mt-7 grid max-w-xl gap-3 sm:grid-cols-2">
-              {hero.trustPoints.map((point) => (
-                <li key={point} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-gold/15 text-brand-gold">
-                    <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                  </span>
-                  <span className="text-sm font-medium leading-6 text-brand-ivory/85">
-                    {point}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-
-          {/* Primary CTAs */}
-          <Reveal {...seq.step(2)}>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href="#enquire"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-gold px-7 py-4 text-base font-bold text-brand-ink shadow-gold transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-sandLight hover:shadow-glow active:translate-y-0 active:scale-[0.98]"
-              >
-                <CalendarCheck className="h-5 w-5" />
-                {siteConfig.cta}
-              </a>
-              <a
-                href={siteConfig.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-7 py-4 text-base font-bold text-white shadow-[0_18px_50px_-20px_rgba(37,211,102,0.7)] transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
-              >
-                <MessageCircle className="h-5 w-5" />
-                {siteConfig.ctaWhatsApp}
-              </a>
-            </div>
-          </Reveal>
-
-          {/* Awards — Trusted & Recognised (3 logos, one row on all viewports) */}
-          <Reveal {...seq.step(3)}>
-            <div className="mt-7">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-ivory/50">
-                Trusted &amp; Recognised
-              </p>
-              <AwardLogos size="lg" className="mt-2.5 max-w-md" />
-            </div>
-          </Reveal>
-        </div>
-
-        {/* RIGHT — enquiry form (arrives with the CTAs → final focal point) */}
-        <div id="enquire" className="scroll-mt-28">
-          <Reveal {...seq.step(2)}>
-            <EnquiryForm variant="hero" instanceId="hero" />
-          </Reveal>
-        </div>
+        {/* Quiet credentials — a single line, not badges */}
+        <Reveal {...seq.step(2)}>
+          <div className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-brand-ivory/12 pt-6 text-[0.78rem] text-brand-ivory/55">
+            <span className="text-brand-ivory/40">Accredited</span>
+            {awards.map((a, i) => (
+              <span key={a.id} className="flex items-center gap-3">
+                {i > 0 && <span className="text-brand-ivory/25">·</span>}
+                {a.label}
+              </span>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -35,7 +35,7 @@ export default function AwardLogos({ size = "md", className }: AwardLogosProps) 
         <div
           key={award.id}
           className={cn(
-            "relative flex-1 overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5",
+            "relative flex-1 overflow-hidden rounded-sm bg-brand-ivory/95",
             heights[size]
           )}
         >
